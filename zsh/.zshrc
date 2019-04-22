@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jerry.zhang/.oh-my-zsh
+export ZSH=/Users/jerryzhang/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 # anaconda
 PATH_WITHOUT_CONDA=$PATH
-PATH_WITH_CONDA="/Users/jerry.zhang/anaconda3/bin:$PATH"
+PATH_WITH_CONDA="/Users/jerryzhang/anaconda3/bin:$PATH"
 export PATH=$PATH_WITHOUT_CONDA
 
 function condaenv() {
