@@ -38,5 +38,6 @@
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
-    }
+    },
+    "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
 }

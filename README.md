@@ -24,4 +24,5 @@ brew cask install intellij-idea-ce
 brew cask install docker
 brew cask install chrome
 brew cask install firefox
+brew cask install shiftit
 ```
