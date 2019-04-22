@@ -1,0 +1,1 @@
+alias curl-trace='curl -w "@~/.curl-format" -o /dev/null -s'
