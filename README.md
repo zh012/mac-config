@@ -7,13 +7,13 @@
 ```
 brew cask install iterm2
 brew install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-3. install libs
+3. install
 
 ```
 brew cask install adoptopenjdk8
+brew cask install anaconda
 ```
 
 4. install applications
@@ -25,4 +25,5 @@ brew cask install docker
 brew cask install chrome
 brew cask install firefox
 brew cask install shiftit
+brew cask install appcleaner
 ```
