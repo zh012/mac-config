@@ -85,8 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # anaconda
-PATH_WITHOUT_CONDA=$PATH
-PATH_WITH_CONDA="/Users/jerryzhang/anaconda3/bin:$PATH"
+PATH_WITHOUT_CONDA="/usr/local/sbin:$PATH"
+PATH_WITH_CONDA="/usr/local/anaconda3/bin:$PATH"
 export PATH=$PATH_WITHOUT_CONDA
 
 function condaenv() {
@@ -95,6 +95,9 @@ function condaenv() {
     else
         export PATH=$PATH_WITH_CONDA
     fi
+}
+function co() {
+    condaenv on; source activate $1
 }
 
 function sshconfig() {
@@ -119,10 +122,12 @@ function awsenv() {
     fi
 }
 
-function co() {
-    condaenv on; source activate $1
-}
-alias kc=kubectl
 alias curl-trace='curl -w "@~/.curl-format" -o /dev/null -s'
 
-export PATH="/usr/local/sbin:$PATH"
+eval "$(rbenv init -)"
+alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash'
+
+alias gconf-side='git config user.name zh012 && git config user.email hui.zhang.jerry@gmail.com'
+alias gconf-work='git config user.name "Jerry Zhang"  && git config user.email jerry.zhang@paytm.com'
+
+alias ku=kubectl
