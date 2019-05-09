@@ -1,3 +1,4 @@
+
 ---
 version: '3'
 services:
@@ -37,12 +38,7 @@ services:
 
 volumes:
   zookeeper-data:
-    driver: local
   zookeeper-secrets:
-    driver: local
   zookeeper-txn-logs:
-    driver: local
   kafka-data:
-    driver: local
   kafka-secrets:
-    driver: local

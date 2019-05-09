@@ -1,0 +1,10 @@
+---
+
+# TODO https://github.com/deviantony/docker-elk
+
+version: '3'
+services:
+  elasticsearch:
+  logstash:
+  kibana:
+volumes:
