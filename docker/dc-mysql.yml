@@ -14,8 +14,4 @@ services:
       - mysql-data:/var/lib/mysql/
 
 volumes:
-  zookeeper-data:
-  zookeeper-secrets:
-  zookeeper-txn-logs:
-  kafka-data:
-  kafka-secrets:
+  mysql-data:
