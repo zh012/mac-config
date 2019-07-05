@@ -51,7 +51,8 @@ ZSH_THEME="myamuse"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(history git docker docker-compose)
+#plugins=(history git docker docker-compose)
+plugins=(history git docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,4 +131,34 @@ alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/mast
 alias gconf-side='git config user.name zh012 && git config user.email hui.zhang.jerry@gmail.com'
 alias gconf-work='git config user.name "Jerry Zhang"  && git config user.email jerry.zhang@paytm.com'
 
-alias ku=kubectl
+
+if [ -f /Users/jerryzhang/.kubectlsrc ]; then 
+    source ~/.kubectlsrc
+fi
+
+###-tns-completion-start-###
+if [ -f /Users/jerryzhang/.tnsrc ]; then 
+    source /Users/jerryzhang/.tnsrc 
+fi
+###-tns-completion-end-###
+
+### brew cask install adoptopenjdk8
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+### brew cask install android-sdk
+export ANDROID_HOME=/usr/local/share/android-sdk
+function emu { cd $(dirname $(readlink `which  emulator`)) && ./emulator "$@"; cd -; }
+
+### https://flutter.dev/docs/get-started/install/macos
+export PATH="$PATH:/Users/jerryzhang/tools/flutter/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jerryzhang/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+# SSH to jumpserver with sock5 proxy
+function jump() {
+	ssh -D 19999 root@`kubectl get svc jumpserver-service-${1:-jerry} '-o=jsonpath={.status.loadBalancer.ingress[0].hostname}'`
+}
