@@ -158,7 +158,6 @@ if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
-# SSH to jumpserver with sock5 proxy
-function jump() {
-	ssh -D 19999 root@`kubectl get svc jumpserver-service-${1:-jerry} '-o=jsonpath={.status.loadBalancer.ingress[0].hostname}'`
-}
+# for terraform using the aws config file
+export AWS_SDK_LOAD_CONFIG=1
+alias tf=terraform

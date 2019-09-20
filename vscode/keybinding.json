@@ -2,7 +2,7 @@
     {
         "key": "shift+enter",
         "command": "editor.action.insertLineAfter",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "editorTextFocus && !editorReadonly && !editorHasSelection"
     },
     {
         "key": "cmd+enter",
@@ -28,5 +28,25 @@
     {
         "key": "cmd+n",
         "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "vscgettext.moveToNextUntranslated",
+        "when": "editorTextFocus && resourceLangId == 'po'"
+    },
+    {
+        "key": "alt+n",
+        "command": "-vscgettext.moveToNextUntranslated",
+        "when": "editorTextFocus && resourceLangId == 'po'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "python.datascience.execSelectionInteractive",
+        "when": "editorTextFocus && !editorReadonly && !findInputFocussed && !python.datascience.hascodecells && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.datascience.execSelectionInteractive",
+        "when": "editorTextFocus && python.datascience.featureenabled && python.datascience.ownsSelection && !findInputFocussed && !replaceInputFocussed && editorLangId == 'python'"
     }
 ]
