@@ -161,3 +161,5 @@ if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc' ]; then . 
 # for terraform using the aws config file
 export AWS_SDK_LOAD_CONFIG=1
 alias tf=terraform
+
+alias gpzh='git push origin zh012:master'
