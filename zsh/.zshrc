@@ -163,3 +163,13 @@ export AWS_SDK_LOAD_CONFIG=1
 alias tf=terraform
 
 alias gpzh='git push origin zh012:master'
+
+### for golang, only needed for <1.11 versions??? need to confirm
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+
+eval "`fnm env`"
+
