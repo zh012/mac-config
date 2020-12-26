@@ -1,0 +1,20 @@
+---
+version: '3'
+
+services:
+  cassandra:
+    image: 'bitnami/cassandra:3'
+    hostname: 'cassandra'
+    container_name: 'cassandra'
+    ports:
+      - '7000:7000'
+      - '9042:9042'
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+      - CASSANDRA_PASSWORD_SEEDER=yes
+      - CASSANDRA_PASSWORD=cassandra
+    volumes:
+      - 'cassandra-data:/bitnami'
+volumes:
+  cassandra-data:
+    driver: local

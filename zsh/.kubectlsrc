@@ -1,18 +1,7 @@
-# Setup kubectl contexts
-#
-# kubectl config set-cluster nonprod.hero2.onepayground.com --server=https://api.nonprod.hero2.onepayground.com --insecure-skip-tls-verify
-# kubectl config set-credentials dev.hero2.onepayground.com  --token <dev token>
-# kubectl config set-context dev.hero2.onepayground.com --cluster=nonprod.hero2.onepayground.com --user=dev.hero2.onepayground.com
-# 
-# kubectl config set-credentials stg.hero2.onepayground.com  --token <stg token>
-# kubectl config set-context stg.hero2.onepayground.com --cluster=nonprod.hero2.onepayground.com --user=stg.hero2.onepayground.com
-# 
-# kubectl config set-cluster prod.hero2.onepayground.com --server=https://api.prod.hero2.onepayground.com --insecure-skip-tls-verify
-# kubectl config set-credentials prod.hero2.onepayground.com  --token <prod token>
-# kubectl config set-context prod.hero2.onepayground.com --cluster=prod.hero2.onepayground.com --user=prod.hero2.onepayground.com
-
 alias k='kubectl'
 alias kg='kubectl get'
+alias kc='kubectl create'
+alias ka='kubectl apply'
 alias kd='kubectl describe'
 alias ke='kubectl exec'
 alias kl='kubectl logs'
@@ -30,15 +19,19 @@ function kns() {
 function ktx () {
 	context=$1
 	if [ ! -z $context ]; then
-		kubectl config use-context ${context}.hero2.onepayground.com
+		realm=$(ls -l ~/.kube/config | sed -e 's/.* -> \.\/config.//')
+		kubectl config use-context "${context}.${realm}"
 	fi
 	kubectl config get-contexts
 }
 
-# SSH to jumpserver with sock5 proxy
-function jump() {
-	host=$(kubectl -n default get svc -o 'custom-columns=HOST:.status.loadBalancer.ingress[0].hostname,NAME:.metadata.name' -l name=jumpserver-service | grep ${1:-jerry} | cut -d' ' -f1)
-	if [ ! -z $host ]; then
-		ssh -D 19999 root@$host
-	fi
+function kenv() {
+    if [[ -f ~/.kube/config.$1 ]]; then
+        cd ~/.kube
+        rm config || true
+        ln -nsf ./config.$1 config
+        cd -
+    else
+        echo "kubectl context $1 does not exist"
+    fi
 }

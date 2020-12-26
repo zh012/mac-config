@@ -86,22 +86,30 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # anaconda
-PATH_WITHOUT_CONDA="/usr/local/sbin:$PATH"
-PATH_WITH_CONDA="/usr/local/anaconda3/bin:$PATH"
-export PATH=$PATH_WITHOUT_CONDA
+#PATH_WITHOUT_CONDA="/usr/local/sbin:$PATH"
+#PATH_WITH_CONDA="/usr/local/anaconda3/bin:$PATH"
+#export PATH=$PATH_WITHOUT_CONDA
 
-function condaenv() {
-    if [[ "$1" == "off" ]]; then
-        export PATH=$PATH_WITHOUT_CONDA
-    else
-        export PATH=$PATH_WITH_CONDA
-    fi
-}
-function co() {
-    condaenv on; source activate $1
-}
+#function condaenv() {
+#    if [[ "$1" == "off" ]]; then
+#        export PATH=$PATH_WITHOUT_CONDA
+#    else
+#        export PATH=$PATH_WITH_CONDA
+#    fi
+#}
+#function co() {
+#    source /usr/local/anaconda3/bin/activate $1
+#}
 
-function sshconfig() {
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+function sshenv() {
     if [[ -f ~/.ssh/config.$1 ]]; then
         cd ~/.ssh
         ln -nsf ./config.$1 config
@@ -118,6 +126,7 @@ function awsenv() {
         rm credentials || true
         ln -nsf ./credentials.$1 credentials
         cd -
+        ~/.aws/awsenv-auth.py
     else
         echo "env $1 does not exist"
     fi
@@ -132,18 +141,14 @@ alias gconf-side='git config user.name zh012 && git config user.email hui.zhang.
 alias gconf-work='git config user.name "Jerry Zhang"  && git config user.email jerry.zhang@paytm.com'
 
 
-if [ -f /Users/jerryzhang/.kubectlsrc ]; then 
-    source ~/.kubectlsrc
-fi
-
 ###-tns-completion-start-###
-if [ -f /Users/jerryzhang/.tnsrc ]; then 
-    source /Users/jerryzhang/.tnsrc 
+if [ -f /Users/jerryzhang/.tnsrc ]; then
+    source /Users/jerryzhang/.tnsrc
 fi
 ###-tns-completion-end-###
 
 ### brew cask install adoptopenjdk8
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 ### brew cask install android-sdk
 export ANDROID_HOME=/usr/local/share/android-sdk
@@ -169,7 +174,55 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export GO111MODULE=auto
 
 
 eval "`fnm env`"
 
+alias python38=/usr/local/opt/python@3.8/bin/python
+
+
+# kubectl
+alias k='kubectl'
+alias kg='kubectl get'
+alias kc='kubectl create'
+alias ka='kubectl apply'
+alias kd='kubectl describe'
+alias ke='kubectl exec'
+alias kl='kubectl logs'
+
+function kns () {
+	ns=$1
+	if [ -z $ns ]; then
+		kubectl get namespace
+	else
+		kubectl config set-context $(kubectl config current-context) --namespace=$ns
+		kubectl config get-contexts
+	fi
+}
+
+function ktx () {
+	context=$1
+	if [ ! -z $context ]; then
+		# realm=$(ls -l ~/.kube/config | sed -e 's/.* -> \.\/config.//')
+		# kubectl config use-context "${context}.${realm}"
+		kubectl config use-context "${context}"
+	fi
+	kubectl config get-contexts
+}
+
+function kenv () {
+    if [[ -f ~/.kube/config.$1 ]]; then
+        cd ~/.kube
+        rm config || true
+        ln -nsf ./config.$1 config
+        cd -
+    else
+        echo "kubectl context $1 does not exist"
+    fi
+}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jerryzhang/.sdkman"
+[[ -s "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh"
+export PATH="/Users/jerryzhang/.deta/bin:$PATH"
