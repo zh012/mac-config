@@ -118,13 +118,6 @@ function clear-scrollback-buffer {
 zle -N clear-scrollback-buffer
 bindkey '^L' clear-scrollback-buffer
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 function sshenv() {
     if [[ -f ~/.ssh/config.$1 ]]; then
@@ -151,53 +144,12 @@ function awsenv() {
 
 alias curl-trace='curl -w "@~/.curl-format" -o /dev/null -s'
 
-eval "$(rbenv init -)"
-alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash'
-
 alias gconf-side='git config user.name zh012 && git config user.email hui.zhang.jerry@gmail.com'
 alias gconf-work='git config user.name "Jerry Zhang"  && git config user.email jerry.zhang@paytm.com'
 
 
-###-tns-completion-start-###
-if [ -f /Users/jerryzhang/.tnsrc ]; then
-    source /Users/jerryzhang/.tnsrc
-fi
-###-tns-completion-end-###
-
 ### brew cask install adoptopenjdk8
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-### brew cask install android-sdk
-export ANDROID_HOME=/usr/local/share/android-sdk
-function emu { cd $(dirname $(readlink `which  emulator`)) && ./emulator "$@"; cd -; }
-
-### https://flutter.dev/docs/get-started/install/macos
-export PATH="$PATH:/Users/jerryzhang/tools/flutter/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jerryzhang/tools/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jerryzhang/tools/google-cloud-sdk/completion.zsh.inc'; fi
-
-# for terraform using the aws config file
-export AWS_SDK_LOAD_CONFIG=1
-alias tf=terraform
-
-alias gpzh='git push origin zh012:master'
-
-### for golang, only needed for <1.11 versions??? need to confirm
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export GO111MODULE=auto
-
-
-eval "`fnm env`"
-
-alias python38=/usr/local/opt/python@3.8/bin/python
-
 
 # kubectl
 alias k='kubectl'
@@ -238,6 +190,9 @@ function kenv () {
         echo "kubectl context $1 does not exist"
     fi
 }
+
+
+eval "`fnm env`"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/jerryzhang/.sdkman"
