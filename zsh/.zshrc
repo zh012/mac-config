@@ -52,7 +52,7 @@ ZSH_THEME="myamuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(history git docker docker-compose)
-plugins=(history git docker-compose)
+plugins=(history git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,22 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# anaconda
-#PATH_WITHOUT_CONDA="/usr/local/sbin:$PATH"
-#PATH_WITH_CONDA="/usr/local/anaconda3/bin:$PATH"
-#export PATH=$PATH_WITHOUT_CONDA
-
-#function condaenv() {
-#    if [[ "$1" == "off" ]]; then
-#        export PATH=$PATH_WITHOUT_CONDA
-#    else
-#        export PATH=$PATH_WITH_CONDA
-#    fi
-#}
-#function co() {
-#    source /usr/local/anaconda3/bin/activate $1
-#}
 
 function clear-scrollback-buffer {
   # Behavior of clear:
@@ -141,6 +125,7 @@ function awsenv() {
         echo "env $1 does not exist"
     fi
 }
+alias awsotp='~/.aws/pai-sre-otp.py'
 
 alias curl-trace='curl -w "@~/.curl-format" -o /dev/null -s'
 
@@ -191,10 +176,13 @@ function kenv () {
     fi
 }
 
+# initialize anaconda
+source "/usr/local/anaconda3/etc/profile.d/conda.sh"
+alias ca='conda activate'
 
 eval "`fnm env`"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/jerryzhang/.sdkman"
 [[ -s "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh"
-export PATH="/Users/jerryzhang/.deta/bin:$PATH"
+

@@ -15,7 +15,7 @@
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>BootstrapDaemon</key>
-	<false/>
+	<true/>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -485,6 +485,10 @@
 	<key>NeverWarnAboutPossibleOverrides</key>
 	<true/>
 	<key>NeverWarnAboutPossibleOverrides_selection</key>
+	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_540ED692-E721-464C-95C2-E344A1F5939E</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_540ED692-E721-464C-95C2-E344A1F5939E_selection</key>
 	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>

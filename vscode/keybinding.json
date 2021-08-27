@@ -1,4 +1,36 @@
+// Place your key bindings in this file to override the defaults
 [
+    {
+        "key": "cmd+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "alt+cmd+n",
+        "command": "workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-deleteRight",
+        "when": "textInputFocus"
+    },
     {
         "key": "shift+enter",
         "command": "editor.action.insertLineAfter",
@@ -10,10 +42,6 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "cmd+n",
-        "command": "explorer.newFile"
-    },
-    {
         "key": "cmd+k cmd+l",
         "command": "editor.action.transformToLowercase"
     },
@@ -22,31 +50,48 @@
         "command": "editor.action.transformToUppercase"
     },
     {
-        "key": "alt+cmd+n",
-        "command": "workbench.action.files.newUntitledFile"
+        "key": "shift+right",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "cmd+n",
-        "command": "-workbench.action.files.newUntitledFile"
+        "key": "alt+cmd+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+alt+n",
-        "command": "vscgettext.moveToNextUntranslated",
-        "when": "editorTextFocus && resourceLangId == 'po'"
+        "key": "shift+left",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+n",
-        "command": "-vscgettext.moveToNextUntranslated",
-        "when": "editorTextFocus && resourceLangId == 'po'"
+        "key": "alt+cmd+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+enter",
-        "command": "python.datascience.execSelectionInteractive",
-        "when": "editorTextFocus && !editorReadonly && !findInputFocussed && !python.datascience.hascodecells && !replaceInputFocussed && editorLangId == 'python'"
+        "key": "ctrl+e",
+        "command": "-cursorLineEnd",
+        "when": "textInputFocus"
     },
     {
-        "key": "shift+enter",
-        "command": "-python.datascience.execSelectionInteractive",
-        "when": "editorTextFocus && python.datascience.featureenabled && python.datascience.ownsSelection && !findInputFocussed && !replaceInputFocussed && editorLangId == 'python'"
+        "key": "ctrl+t",
+        "command": "-editor.action.transposeLetters",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "shift+cmd+e",
+        "command": "-workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
     }
 ]
