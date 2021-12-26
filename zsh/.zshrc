@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jerryzhang/.oh-my-zsh
+export ZSH=/Users/jerry/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -85,104 +85,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-function clear-scrollback-buffer {
-  # Behavior of clear:
-  # 1. clear scrollback if E3 cap is supported (terminal, platform specific)
-  # 2. then clear visible screen
-  # For some terminal 'e[3J' need to be sent explicitly to clear scrollback
-  clear && printf '\e[3J'
-  # .reset-prompt: bypass the zsh-syntax-highlighting wrapper
-  # https://github.com/sorin-ionescu/prezto/issues/1026
-  # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
-  # -R: redisplay the prompt to avoid old prompts being eaten up
-  # https://github.com/Powerlevel9k/powerlevel9k/pull/1176#discussion_r299303453
-  zle && zle .reset-prompt && zle -R
-}
-
-zle -N clear-scrollback-buffer
-bindkey '^L' clear-scrollback-buffer
-
-
-function sshenv() {
-    if [[ -f ~/.ssh/config.$1 ]]; then
-        cd ~/.ssh
-        ln -nsf ./config.$1 config
-        cd -
-    else
-        echo "config $1 does not exist"
-    fi
-}
-
-# switch aws credentials
-function awsenv() {
-    if [[ -f ~/.aws/credentials.$1 ]]; then
-        cd ~/.aws
-        rm credentials || true
-        ln -nsf ./credentials.$1 credentials
-        cd -
-        ~/.aws/awsenv-auth.py
-    else
-        echo "env $1 does not exist"
-    fi
-}
-alias awsotp='~/.aws/pai-sre-otp.py'
-
-alias curl-trace='curl -w "@~/.curl-format" -o /dev/null -s'
-
-alias gconf-side='git config user.name zh012 && git config user.email hui.zhang.jerry@gmail.com'
-alias gconf-work='git config user.name "Jerry Zhang"  && git config user.email jerry.zhang@paytm.com'
-
-
-### brew cask install adoptopenjdk8
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-# kubectl
-alias k='kubectl'
-alias kg='kubectl get'
-alias kc='kubectl create'
-alias ka='kubectl apply'
-alias kd='kubectl describe'
-alias ke='kubectl exec'
-alias kl='kubectl logs'
-
-function kns () {
-	ns=$1
-	if [ -z $ns ]; then
-		kubectl get namespace
-	else
-		kubectl config set-context $(kubectl config current-context) --namespace=$ns
-		kubectl config get-contexts
-	fi
-}
-
-function ktx () {
-	context=$1
-	if [ ! -z $context ]; then
-		# realm=$(ls -l ~/.kube/config | sed -e 's/.* -> \.\/config.//')
-		# kubectl config use-context "${context}.${realm}"
-		kubectl config use-context "${context}"
-	fi
-	kubectl config get-contexts
-}
-
-function kenv () {
-    if [[ -f ~/.kube/config.$1 ]]; then
-        cd ~/.kube
-        rm config || true
-        ln -nsf ./config.$1 config
-        cd -
-    else
-        echo "kubectl context $1 does not exist"
-    fi
-}
-
-# initialize anaconda
-source "/usr/local/anaconda3/etc/profile.d/conda.sh"
-alias ca='conda activate'
-
-eval "`fnm env`"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jerryzhang/.sdkman"
-[[ -s "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jerryzhang/.sdkman/bin/sdkman-init.sh"
-
+source ~/Repo/mac-setup/zsh/.myzshrc
