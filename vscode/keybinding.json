@@ -80,18 +80,17 @@
         "when": "textInputFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+t",
-        "command": "terminal.focus",
-        "when": "!terminalFocus"
+        "key": "cmd+j",
+        "command": "workbench.action.togglePanel",
+        "when": "panelFocus"
     },
     {
-        "key": "ctrl+e",
-        "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
+        "key": "cmd+j",
+        "command": "-workbench.action.togglePanel"
     },
     {
-        "key": "shift+cmd+e",
-        "command": "-workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
+        "key": "cmd+j",
+        "command": "workbench.action.terminal.focus",
+        "when": "!panelFocus"
     }
 ]
