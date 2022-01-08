@@ -85,4 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# brew install fnm
+eval "$(fnm env)"
+
 source ~/Repo/mac-setup/zsh/.myzshrc
