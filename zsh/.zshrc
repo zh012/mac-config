@@ -105,3 +105,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+alias ca="conda activate"
+export PATH="/Users/jerry/.local/bin:$PATH"
