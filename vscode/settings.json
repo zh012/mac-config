@@ -1,43 +1,54 @@
 {
-    "gitlens.keymap": "chorded",
-    "explorer.confirmDragAndDrop": false,
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
     },
-    "extensions.ignoreRecommendations": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.codeLens.authors.enabled": false,
-    "editor.minimap.enabled": false,
-    "explorer.confirmDelete": false,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "window.zoomLevel": 0,
-    "gitlens.historyExplorer.enabled": true,
-    "workbench.statusBar.feedback.visible": false,
-    "files.trimTrailingWhitespace": true,
-    "plantuml.server": "http://127.0.0.1:11111",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+    "plantuml.server": "http://localhost:17001",
     "plantuml.render": "PlantUMLServer",
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "json.maxItemsComputed": 15000,
+    "explorer.confirmDragAndDrop": false,
+    "python.formatting.provider": "black",
+    "livePreview.notifyOnOpenLooseFile": false,
     "emmet.includeLanguages": {
-        "erb": "html"
+      "njk": "html",
+      "jinja-html": "html"
     },
-    "liveServer.settings.donotVerifyTags": true,
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "python.jediEnabled": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "files.exclude": {
+    "java.home": "/Users/jerryzhang/.sdkman/candidates/java/11.0.11.hs-adpt",
+    "java.configuration.runtimes": [
+        {
+          "name": "JavaSE-1.8",
+          "path": "/Users/jerryzhang/.sdkman/candidates/java/8.0.292.hs-adpt"
+        },
+        {
+          "name": "JavaSE-11",
+          "path": "/Users/jerryzhang/.sdkman/candidates/java/11.0.11.hs-adpt"
+        }
+      ],
+      "files.exclude": {
+        ".venv": true,
+        "**/__pycache__": true,
         "**/.classpath": true,
+        "**/.factorypath": true,
         "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "terminal.integrated.fontFamily": "Meslo LG M for Powerline"
+        "**/.settings": true
+      },
+      "security.workspace.trust.untrustedFiles": "open",
+      "terminal.integrated.inheritEnv": false,
+      "terminal.integrated.defaultProfile.osx": "zsh (non login)",
+      "terminal.integrated.profiles.osx": {
+          "zsh (non login)": {
+              "path": "zsh",
+              "args": []
+          }
+      },
+      "terminal.integrated.enableMultiLinePasteWarning": false,
+      "files.trimTrailingWhitespace": true
 }
