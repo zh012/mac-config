@@ -19,3 +19,16 @@ cd
 ln -nsf $HOME/Repo/zsh/.zprofile .zprofile
 ln -nsf $HOME/Repo/mac-setup/zsh/.zshrc .zshrc
 ```
+
+5. in vscode custom settings
+
+```
+      "terminal.integrated.inheritEnv": false,
+      "terminal.integrated.defaultProfile.osx": "zsh (non login)",
+      "terminal.integrated.profiles.osx": {
+          "zsh (non login)": {
+              "path": "zsh",
+              "args": []
+          }
+      },
+```
