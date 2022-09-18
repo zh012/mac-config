@@ -11,3 +11,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 Profiles -> Default -> Text -> Non-ASCII Font
 ```
+
+4. link profile
+
+```
+cd
+ln -nsf $HOME/Repo/zsh/.zprofile .zprofile
+ln -nsf $HOME/Repo/mac-setup/zsh/.zshrc .zshrc
+```
