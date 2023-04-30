@@ -1,0 +1,13 @@
+name: OTA Tours
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a one-line script
+        run: curl -L -c deta-cookies 'https://deta.space/api/v0/auth/login' -H 'Content-Type: application/json' --data-raw $'{"username":"zh012","password":"Goat2015\u0021"}' && curl -L -b deta-cookies 'https://otaentry-1-x6025803.deta.app/api/check-updates'
