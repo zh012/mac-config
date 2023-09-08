@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Tour Updates
+      - name: Check U12&U14 Tour Updates
         run: |
           curl -L -c deta-cookies 'https://deta.space/api/v0/auth/login' \
           -H 'Content-Type: application/json' \
