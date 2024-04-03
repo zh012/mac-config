@@ -1,54 +1,30 @@
 {
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
-    "plantuml.server": "http://localhost:17001",
-    "plantuml.render": "PlantUMLServer",
-    "explorer.confirmDelete": false,
-    "editor.minimap.enabled": false,
-    "json.maxItemsComputed": 15000,
-    "explorer.confirmDragAndDrop": false,
-    "python.formatting.provider": "black",
-    "livePreview.notifyOnOpenLooseFile": false,
-    "emmet.includeLanguages": {
-      "njk": "html",
-      "jinja-html": "html"
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "java.home": "/Users/jerryzhang/.sdkman/candidates/java/11.0.11.hs-adpt",
-    "java.configuration.runtimes": [
-        {
-          "name": "JavaSE-1.8",
-          "path": "/Users/jerryzhang/.sdkman/candidates/java/8.0.292.hs-adpt"
-        },
-        {
-          "name": "JavaSE-11",
-          "path": "/Users/jerryzhang/.sdkman/candidates/java/11.0.11.hs-adpt"
-        }
-      ],
-      "files.exclude": {
-        ".venv": true,
-        "**/__pycache__": true,
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.project": true,
-        "**/.settings": true
-      },
-      "security.workspace.trust.untrustedFiles": "open",
-      "terminal.integrated.inheritEnv": false,
-      "terminal.integrated.defaultProfile.osx": "zsh (non login)",
-      "terminal.integrated.profiles.osx": {
-          "zsh (non login)": {
-              "path": "zsh",
-              "args": []
-          }
-      },
-      "terminal.integrated.enableMultiLinePasteWarning": false,
-      "files.trimTrailingWhitespace": true
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  "json.maxItemsComputed": 15000,
+  "editor.suggestSelection": "first",
+  "files.exclude": {
+    ".venv": true,
+    "**/__pycache__": true,
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/*.egg-info": true,
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  // "terminal.integrated.inheritEnv": false,
+  // "terminal.integrated.defaultProfile.osx": "zsh",
+  // "terminal.integrated.profiles.osx": {
+  //   "zsh (non login)": {
+  //     "path": "zsh",
+  //     "args": []
+  //   }
+  // },
+  "files.trimTrailingWhitespace": true,
+  "editor.largeFileOptimizations": false,
+  "git.openRepositoryInParentFolders": "never",
+  "editor.inlineSuggest.enabled": true
 }

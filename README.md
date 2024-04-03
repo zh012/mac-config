@@ -1,39 +1,70 @@
 # setup the work env on mac bookpro
 
-1. install brew
+## Install Homebrew
 
-2. setup terminals
+## Setup dev env
 
-```
-brew cask install iterm2
-brew install zsh
-```
+### 1. Install and configure `oh-my-zsh`
 
-3. install dev libs
+
+### 2. Install and configure `iterm2`
 
 ```
-brew cask install adoptopenjdk8
-brew cask install anaconda
-brew install node
-brew install rbenv
+brew install iterm2
 ```
 
-4. install dev tools
+### 3. Install and configure `vscode`
 
 ```
-brew cask install visual-studio-code
-brew cask install intellij-idea-ce
-brew cask install docker
-brew cask install tableplus
+brew install visual-studio-code
 ```
 
-5. install applications
+### 3. Install `pyenv`
 
 ```
-brew cask install chrome
-brew cask install firefox
-brew cask install shiftit
-brew cask install appcleaner
-brew cask install iina
-brew cask uninstall google-drive-file-stream
+brew install pyenv
+pyenv install 3.12
+pyenv global 3.12
+```
+
+append to .zshrc
+
+```
+# configure for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+### 4. Install `fnm`
+
+```
+brew install fnm
+```
+
+append to .zshrc
+
+```
+# configure for fnm
+eval "$(fnm env --use-on-cd)"
+```
+
+### 5. TO be added: golang, java ...
+
+
+### Utilities
+
+1. Install `Clocker` from app store
+
+2. Install `Hammerspoon` via brew and configure the hotkeys
+
+3. Install `appcleaner` via brew
+
+### Optional
+
+
+* Media player
+
+```
+brew cask iina
 ```
