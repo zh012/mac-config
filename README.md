@@ -2,6 +2,11 @@
 
 ## Install Homebrew
 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
+```
+
 ## Setup dev env
 
 ### 1. Install and configure `oh-my-zsh`
