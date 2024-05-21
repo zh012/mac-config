@@ -15,5 +15,5 @@ Profiles -> Default -> Text -> Use a different font for non-ASCII text
 ## Restore the preferences
 
 ```
-General -> Load preferences from a custom folder or URL -> <point to this folder>
+General -> Settings -> Load preferences from a custom folder or URL -> <point to this folder>
 ```
